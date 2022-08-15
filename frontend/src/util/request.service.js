@@ -30,7 +30,7 @@ export default class RequestService  {
   static Logoff() {
     store.commit('user/logoff');
     localStorage.removeItem('user-info');
-    window.location.href = "/";
+    window.location.href = "/login";
   }
 
   static Login(email, password) {

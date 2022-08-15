@@ -24,6 +24,7 @@ const routes = [
     name: 'Home',
     component: HomeView
   },
+  { path: '/:pathMatch(.*)*', component: LoginView },
 ]
 
 const router = createRouter({

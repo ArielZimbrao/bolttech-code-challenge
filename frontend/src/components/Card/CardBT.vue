@@ -20,7 +20,7 @@
     </div>
     <div class="card-main">
       <div v-if="taskTodo.length === 0 && taskDone.length === 0">
-        Nenhuma task cadastrada
+        No task registered
       </div>
       <div v-else class="tasks-container">
         <span class="card-title">To Do</span>
@@ -35,7 +35,7 @@
         </div>
         <span class="card-title">Done</span>
         <div class="task" v-for="task in taskDone" :key="task.id">
-          <div class="item-list">
+          <div class="item-list"  :title="`Finished on ${task.dateDone}`">
             <input type="checkbox" :id="task.description" :name="task.description" checked disabled>
             <label :for="task.description">{{task.description}}</label>
           </div>
@@ -60,6 +60,7 @@
 import useVuelidate from '@vuelidate/core'
 import RequestService from "@/util/request.service";
 import { required, helpers } from '@vuelidate/validators'
+import formatDate from '@/util/formatDate';
 
 export default {
   name: 'CardBT',
@@ -111,8 +112,14 @@ export default {
     getTask() {
       RequestService.getTasks(this.id)
       .then((result) => {
-        this.taskDone = result.filter((item) => item.done)
-        this.taskTodo = result.filter((item) => !item.done)
+        const tasks = result.map((item) => {
+          if (item.done) {
+            item.dateDone = formatDate(item.dateDone)
+          }
+          return item
+        })
+        this.taskDone = tasks.filter((item) => item.done)
+        this.taskTodo = tasks.filter((item) => !item.done)
       })
     },
     async addTask() {

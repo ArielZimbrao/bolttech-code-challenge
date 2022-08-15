@@ -1,5 +1,5 @@
 <template>
-  <MenuBT></MenuBT>
+  <HeaderBT></HeaderBT>
   <div class="home-container">
     <div class="container-elements">
       <div class="project-container">
@@ -30,14 +30,14 @@
 </template>
 
 <script>
-import MenuBT from '@/components/Menu/MenuBT'
+import HeaderBT from '@/components/Header/HeaderBT'
 import RequestService from "@/util/request.service";
 import CardBT from '@/components/Card/CardBT.vue';
 
 export default {
   name: 'HomeView',
   components: {
-    MenuBT,
+    HeaderBT,
     CardBT
   },
 
