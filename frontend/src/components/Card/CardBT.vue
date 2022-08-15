@@ -24,20 +24,24 @@
       </div>
       <div v-else class="tasks-container">
         <span class="card-title">To Do</span>
-        <div class="task" v-for="task in taskTodo" :key="task.id">
-          <div class="item-list">
-            <input type="checkbox" :id="task.description" :name="task.description" v-on:click="() => checkTask(task.id)">
-            <label :for="task.description">{{task.description}}</label>
-          </div>
-          <div class="card-icons">
-            <img class="icon-actions" src="../../assets/trash-can-solid.svg" v-on:click="() => excluirTask(task.id)">
+        <div class="register-task">
+          <div class="task" v-for="task in taskTodo" :key="task.id">
+            <div class="item-list">
+              <input type="checkbox" :id="task.description" :name="task.description" v-on:click="() => checkTask(task.id)">
+              <label :for="task.description">{{task.description}}</label>
+            </div>
+            <div class="card-icons">
+              <img class="icon-actions" src="../../assets/trash-can-solid.svg" v-on:click="() => excluirTask(task.id)">
+            </div>
           </div>
         </div>
         <span class="card-title">Done</span>
-        <div class="task" v-for="task in taskDone" :key="task.id">
-          <div class="item-list"  :title="`Finished on ${task.dateDone}`">
-            <input type="checkbox" :id="task.description" :name="task.description" checked disabled>
-            <label :for="task.description">{{task.description}}</label>
+         <div class="register-task">
+          <div class="task" v-for="task in taskDone" :key="task.id">
+            <div class="item-list"  :title="`Finished on ${task.dateDone}`">
+              <input type="checkbox" :id="task.description" :name="task.description" checked disabled>
+              <label :for="task.description">{{task.description}}</label>
+            </div>
           </div>
         </div>
       </div>
