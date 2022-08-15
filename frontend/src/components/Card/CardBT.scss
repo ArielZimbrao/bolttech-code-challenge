@@ -1,0 +1,154 @@
+@import '../common.scss';
+
+.card-container {
+
+    background-color: white;
+    border: 1px solid #eeeeee;
+    border-radius: 10px;
+
+    .card-header{
+
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 15px;
+        height: 35px;
+        background-color: #eeeeee;
+        border-radius: 10px 10px 0 0;
+
+        .card-title-edit {
+            .project-edit-input {
+                flex: 1;
+                border-radius: 5px;
+                height: 30px;
+                border: 1px solid #d1d1d1;
+                box-sizing: border-box;
+                outline: none;
+                padding: 10px;
+            }
+            .btn-edit-project {
+                background-color: #d2d2d2;
+                border-radius: 5px;
+                color: #fff;
+                height: 30px;
+                margin-left: 10px;
+                width: 70px;
+                border: none;
+                cursor: pointer;
+                transition: .3s all;
+                box-sizing: border-box;
+
+                &.save {
+                    background-color: #00d138;
+                }
+
+                &:hover{
+
+                    &.save {
+                        background-color: darken(#00d138, 5);
+                    }
+                }
+            }
+        }
+
+        .card-title{
+            font-size: 18px;
+            color: #605659;
+            font-weight: 600;
+        }
+
+        .card-icons{
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding-right: 15px;
+
+            .icon-actions {
+                cursor: pointer;
+                color: red;
+                width: 15px;
+                height: 15px;
+            }
+        }
+    }
+
+    .card-main{
+        
+        margin: 20px 15px;
+
+        .tasks-container {
+            display: flex;
+            flex-direction: column;
+        
+            .card-title{
+                color: #605659;
+                font-size: 20px;
+                font-weight: 600;
+            }
+
+            .task {
+                display: flex;
+                align-items: center;
+                width: 100%;
+
+                &:hover {
+                    color: #0000ff;
+
+                    .card-icons {
+                        display: flex;
+                    }
+                }
+
+                .card-icons{
+                    display: none;
+                    align-items: center;
+                    gap: 8px;
+                    padding-left: 15px;
+
+                    .icon-actions {
+                        cursor: pointer;
+                        width: 15px;
+                        height: 15px;
+                    }
+                }
+            }
+        }
+
+        .card-field-task{
+
+            display: flex;
+            gap: 10px;
+            padding-top: 30px;
+            border-top: 1px solid #d1d1d1;
+            margin-top: 30px;
+
+            .task-form{
+
+                flex: 1;
+                border-radius: 5px;
+                height: 40px;
+                border: 1px solid #d1d1d1;
+                box-sizing: border-box;
+                outline: none;
+                padding: 10px;
+            }
+
+            .add-task{
+
+                background-color: #00d138;
+                border-radius: 5px;
+                color: #fff;
+                height: 40px;
+                width: 95px;
+                border: none;
+                cursor: pointer;
+                transition: .3s all;
+
+                &:hover{
+
+                    background-color: darken(#00d138, 5);
+                }
+            }
+        }
+    }
+}
