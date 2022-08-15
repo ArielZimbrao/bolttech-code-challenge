@@ -33,6 +33,11 @@ import { UserEntity } from './user.entity';
       default: false,
     })
     done: Boolean
+
+    @Column('timestamp', {
+      nullable: true,
+    })
+    dateDone: Date;
   
     @CreateDateColumn()
     created_at: Date;

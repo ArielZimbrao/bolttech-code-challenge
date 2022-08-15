@@ -17,3 +17,15 @@ export class UserAlreadyExistsError extends HttpException {
     super('User already exists', HttpStatus.BAD_REQUEST);
   }
 }
+
+export class ProjectNotFoundError extends HttpException {
+  constructor() {
+    super('Project not found', HttpStatus.NOT_FOUND);
+  }
+}
+
+export class TaskNotFoundError extends HttpException {
+  constructor() {
+    super('Task not found', HttpStatus.NOT_FOUND);
+  }
+}

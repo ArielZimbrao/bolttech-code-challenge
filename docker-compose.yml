@@ -1,0 +1,47 @@
+version: "3"
+
+services:
+  backend:
+    build:
+      context: ./backend
+    volumes:
+      - ./backend:/usr/src/app
+    expose:
+      - "3000"
+    ports:
+      - 3000:3000
+    command: npm run start
+    env_file:
+      - ./backend/.env
+    depends_on:
+      - pgsql
+  frontend:
+    build:
+      context: ./frontend
+    volumes:
+      - ./frontend:/usr/src/app
+    ports:
+      - 8080:8080
+    command: npm run serve
+    env_file:
+      - ./frontend/.env
+    depends_on:
+      - backend
+  pgsql:
+    image: postgres:alpine
+    ports:
+      - "5435:5435"
+    restart: always
+    expose:
+      - "5435"
+    volumes:
+      - pg-data:/var/lib/postgresql/data
+      - ./scripts:/docker-entrypoint-initdb.d
+    command: -p 5435
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: 123456
+      POSTGRES_MULTIPLE_DATABASES: bolttech
+
+volumes:
+  pg-data:
